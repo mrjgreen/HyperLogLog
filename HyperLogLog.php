@@ -50,6 +50,36 @@ class HyperLogLog {
         }
     }
 
+    public function export()
+    {
+        $str = '';
+        for ($i = 0; $i < $this->HLL_REGISTERS; $i++) {
+            $str .= chr($this->M[$i]);
+        }
+        return $str;
+    }
+
+    public function import($str)
+    {
+        for ($i = 0; $i < $this->HLL_REGISTERS; $i++) {
+            $this->M[$i] = isset($str[$i]) ? ord($str[$i]) : 0;
+        }
+    }
+
+    public function merge($str)
+    {
+        for ($i = 0; $i < $this->HLL_REGISTERS; $i++) {
+            if(isset($str[$i]))
+            {
+                $ord = ord($str[$i]);
+                if ($this->M[$i] < $ord) {
+                    $this->M[$i] = $ord;
+                }
+            }
+
+        }
+    }
+
     /**
      * @static
      * @param $arr
