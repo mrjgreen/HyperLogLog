@@ -2,31 +2,26 @@
 
 class HyperLogLog {
 
-
-    private $HLL_P;
-
     private $HLL_P_MASK;
 
     private $HLL_REGISTERS;
 
     private $ALPHA;
 
-    public $M;
+    public $registers;
 
-    public function __construct()
+    public function __construct($HLL_P = 14)
     {
-        $this->HLL_P = 14; /* The greater is P, the smaller the error. */
-
-        $this->HLL_REGISTERS = (1 << $this->HLL_P); /* With P=14, 16384 registers. */
+        $this->HLL_REGISTERS = (1 << $HLL_P); /* With P=14, 16384 registers. */
 
         $this->HLL_P_MASK = ($this->HLL_REGISTERS - 1); /* Mask to index register. */
 
         $this->ALPHA = 0.7213 / (1 + 1.079 / $this->HLL_REGISTERS);
 
-        $this->M = new SplFixedArray($this->HLL_REGISTERS);
+        $this->registers = new SplFixedArray($this->HLL_REGISTERS);
 
         for ($i = 0; $i < $this->HLL_REGISTERS; $i++) {
-            $this->M[$i] = 0;
+            $this->registers[$i] = 0;
         }
     }
 
@@ -45,8 +40,8 @@ class HyperLogLog {
         /* Update the register if this element produced a longer run of zeroes. */
         $index = $h & $this->HLL_P_MASK; /* Index a register inside registers. */
 
-        if ($this->M[$index] < $count) {
-            $this->M[$index] = $count;
+        if ($this->registers[$index] < $count) {
+            $this->registers[$index] = $count;
         }
     }
 
@@ -54,7 +49,7 @@ class HyperLogLog {
     {
         $str = '';
         for ($i = 0; $i < $this->HLL_REGISTERS; $i++) {
-            $str .= chr($this->M[$i]);
+            $str .= chr($this->registers[$i]);
         }
         return $str;
     }
@@ -62,7 +57,7 @@ class HyperLogLog {
     public function import($str)
     {
         for ($i = 0; $i < $this->HLL_REGISTERS; $i++) {
-            $this->M[$i] = isset($str[$i]) ? ord($str[$i]) : 0;
+            $this->registers[$i] = isset($str[$i]) ? ord($str[$i]) : 0;
         }
     }
 
@@ -72,8 +67,8 @@ class HyperLogLog {
             if(isset($str[$i]))
             {
                 $ord = ord($str[$i]);
-                if ($this->M[$i] < $ord) {
-                    $this->M[$i] = $ord;
+                if ($this->registers[$i] < $ord) {
+                    $this->registers[$i] = $ord;
                 }
             }
 
@@ -91,8 +86,8 @@ class HyperLogLog {
         $ez = 0;
 
         for ($i = 0; $i < $this->HLL_REGISTERS; $i++) {
-            if ($this->M[$i] !== 0) {
-                $E += (1.0 / pow(2, $this->M[$i]));
+            if ($this->registers[$i] !== 0) {
+                $E += (1.0 / pow(2, $this->registers[$i]));
             } else {
                 $ez++;
                 $E += 1.0;
