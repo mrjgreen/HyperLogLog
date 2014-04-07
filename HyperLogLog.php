@@ -8,7 +8,7 @@ class HyperLogLog {
 
     private $ALPHA;
 
-    public $registers;
+    private $registers;
 
     public function __construct($HLL_P = 14)
     {
