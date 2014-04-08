@@ -27,9 +27,9 @@ class HyperLogLog {
 
     public function add($v)
     {
-        $h = crc32(md5($v));
+        $hash = crc32(md5($v));
 
-        $h |= 1 << 63; /* Make sure the loop terminates. */
+        $h = $hash | 1 << 63; /* Make sure the loop terminates. */
         $bit = $this->HLL_REGISTERS; /* First bit not used to address the register. */
         $count = 1; /* Initialized to 1 since we count the "00000...1" pattern. */
         while(($h & $bit) == 0) {
@@ -43,6 +43,8 @@ class HyperLogLog {
         if ($this->registers[$index] < $count) {
             $this->registers[$index] = $count;
         }
+
+        return $hash;
     }
 
     public function export()
@@ -61,17 +63,19 @@ class HyperLogLog {
         }
     }
 
-    public function merge($str)
+    public function getRegisters()
     {
-        for ($i = 0; $i < $this->HLL_REGISTERS; $i++) {
-            if(isset($str[$i]))
-            {
-                $ord = ord($str[$i]);
-                if ($this->registers[$i] < $ord) {
-                    $this->registers[$i] = $ord;
-                }
-            }
+        return $this->registers;
+    }
 
+    public function merge(HyperLogLog $hll)
+    {
+        $registers = $hll->getRegisters();
+
+        for ($i = 0; $i < count($registers); $i++) {
+            if (!isset($this->registers[$i]) || $this->registers[$i] < $registers) {
+                $this->registers[$i] = $registers;
+            }
         }
     }
 
