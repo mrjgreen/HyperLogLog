@@ -1,0 +1,25 @@
+{
+    "name": "joegreen0991/HyperLogLog",
+    "type": "library",
+    "description": "A hyper log log with min hash data structure library, for counting cardinalities. Union and intersection capable",
+    "keywords": ["hyperloglog", "hyper log log", "min hash", "unique", "cardinalities", "cardinality"],
+    "homepage": "http://www.github.com/joegreen0991/HyperLogLog",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Joe Green",
+            "email": "joe.green0991@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-0": {
+            "HyperLogLog": "src"
+        },
+        "classmap" : [
+            "src"
+        ]
+    },
+    "require": {
+        "php": ">=5.3.0"
+    }
+}

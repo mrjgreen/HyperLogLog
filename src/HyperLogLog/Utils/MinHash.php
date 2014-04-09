@@ -1,12 +1,14 @@
-<?php
+<?php namespace HyperLogLog\Utils;
 
 class MinHash {
+
+    const DEFAULT_MIN_HASH_K = 8921;
 
     private $MIN_HASH_K;
 
     private $registers = array();
 
-    public function __construct($MIN_HASH_K = 9000)
+    public function __construct($MIN_HASH_K = self::DEFAULT_MIN_HASH_K)
     {
         $this->MIN_HASH_K = $MIN_HASH_K;
     }
@@ -16,7 +18,7 @@ class MinHash {
         $this->registers[$hash] = 1;
 
         // We don't need to sort and slice every time - it's very very expensive!
-        if(count($this->registers) > $this->MIN_HASH_K * 2)
+        if(count($this->registers) >= $this->MIN_HASH_K * 2)
         {
             $this->clean();
         }
@@ -29,16 +31,21 @@ class MinHash {
         $this->registers = array_slice($this->registers, 0, $this->MIN_HASH_K, true);
     }
 
-    public function getMinHash()
+    public function toArray()
     {
         $this->clean();
 
         return array_keys($this->registers);
     }
 
-    public function merge(MinHash $minHash)
+    public function getMinHashK()
     {
-        foreach($minHash->getMinHash() as $hash)
+        return $this->MIN_HASH_K;
+    }
+
+    public function union(MinHash $minHash)
+    {
+        foreach($minHash->toArray() as $hash)
         {
             $this->registers[$hash] = 1;
         }
@@ -48,7 +55,7 @@ class MinHash {
 
     public function export()
     {
-        return implode(',',$this->getMinHash());
+        return implode(',',$this->toArray());
     }
 
     public function import($str)

@@ -1,6 +1,11 @@
-<?php
+<?php namespace HyperLogLog;
 
-class HyperLogLog {
+use SplFixedArray;
+
+class Basic {
+
+    /* With P=14, 16384 registers. */
+    const DEFAULT_HLL = 14;
 
     private $HLL_P_MASK;
 
@@ -8,15 +13,14 @@ class HyperLogLog {
 
     private $ALPHA;
 
+    /**
+     * @var SplFixedArray
+     */
     private $registers;
 
-    public function __construct($HLL_P = 14)
+    public function __construct($HLL_P = self::DEFAULT_HLL)
     {
-        $this->HLL_REGISTERS = (1 << $HLL_P); /* With P=14, 16384 registers. */
-
-        $this->HLL_P_MASK = ($this->HLL_REGISTERS - 1); /* Mask to index register. */
-
-        $this->ALPHA = 0.7213 / (1 + 1.079 / $this->HLL_REGISTERS);
+        $this->resize(1 << $HLL_P);
 
         $this->registers = new SplFixedArray($this->HLL_REGISTERS);
 
@@ -25,11 +29,25 @@ class HyperLogLog {
         }
     }
 
+    private function resize($register_size)
+    {
+        $this->HLL_REGISTERS = $register_size;
+
+        $this->HLL_P_MASK = ($this->HLL_REGISTERS - 1); /* Mask to index register. */
+
+        $this->ALPHA = 0.7213 / (1 + 1.079 / $this->HLL_REGISTERS);
+
+        if(isset($this->registers))
+        {
+            $this->registers->setSize($this->HLL_REGISTERS);
+        }
+    }
+
     public function add($v)
     {
-        $hash = crc32(md5($v));
+        $h = $hash = crc32(md5($v));
 
-        $h = $hash | 1 << 63; /* Make sure the loop terminates. */
+        $h |= 1 << 63; /* Make sure the loop terminates. */
         $bit = $this->HLL_REGISTERS; /* First bit not used to address the register. */
         $count = 1; /* Initialized to 1 since we count the "00000...1" pattern. */
         while(($h & $bit) == 0) {
@@ -65,16 +83,23 @@ class HyperLogLog {
 
     public function getRegisters()
     {
-        return $this->registers;
+        return $this->registers->toArray();
     }
 
-    public function merge(HyperLogLog $hll)
+    public function union(Basic $hll)
     {
         $registers = $hll->getRegisters();
 
+        // The set to be unioned may be bigger than this initial set so we need to increase this set to match
+        if(count($this->registers) < ($newCount = count($registers)))
+        {
+            $this->resize($newCount);
+        }
+
+
         for ($i = 0; $i < count($registers); $i++) {
-            if (!isset($this->registers[$i]) || $this->registers[$i] < $registers) {
-                $this->registers[$i] = $registers;
+            if (!isset($this->registers[$i]) || $this->registers[$i] < $registers[$i]) {
+                $this->registers[$i] = $registers[$i];
             }
         }
     }
