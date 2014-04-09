@@ -47,15 +47,10 @@ class MinHash extends Basic {
         return array(parent::export(), $this->minHash->export());
     }
 
-    public function import($hllStr, $minHashStr)
+    public function import($pair)
     {
-        parent::import($hllStr);
+        parent::import($pair[0]);
 
-        $this->minHash->import($minHashStr);
-    }
-
-    public function importAsArray($pair)
-    {
-        return $this->import($pair[0],$pair[1]);
+        $this->minHash->import($pair[1]);
     }
 }
