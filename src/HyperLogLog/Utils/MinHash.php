@@ -55,7 +55,7 @@ class MinHash {
 
     public function export()
     {
-        return call_user_func_array('pack', array_merge(array('L*'), $this->toArray()));
+        return call_user_func_array('pack', array_merge(array('I*'), $this->toArray()));
 
         //return implode(',',$this->toArray());
     }
@@ -64,7 +64,7 @@ class MinHash {
     {
         //$hash = explode(',', $str);
 
-        $hash = unpack('L*',$str);
+        $hash = unpack('I*',$str);
 
         $this->registers = array_flip($hash);
     }
