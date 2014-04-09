@@ -46,7 +46,11 @@ $merge_log = array_pop($log_logs);
 
 $new_log_log = new HyperLogLog\MinHash();
 
-$new_log_log->importAsArray($merge_log->export());
+$new_log_log->import($merge_log->export());
+
+echo $merge_log->count() . "\n";
+
+echo $new_log_log->count() . "\n";
 
 $log_logs[] = $new_log_log;
 

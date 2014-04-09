@@ -67,17 +67,16 @@ class Basic {
 
     public function export()
     {
-        $str = '';
-        for ($i = 0; $i < $this->HLL_REGISTERS; $i++) {
-            $str .= chr($this->registers[$i]);
-        }
-        return $str;
+        return call_user_func_array('pack', array_merge(array('I*'), $this->getRegisters()));
     }
 
     public function import($str)
     {
-        for ($i = 0; $i < $this->HLL_REGISTERS; $i++) {
-            $this->registers[$i] = isset($str[$i]) ? ord($str[$i]) : 0;
+        $registers = array_values(unpack('I*', $str));
+
+        foreach($registers as $i => $r)
+        {
+            $this->registers[$i] = $registers[$i];
         }
     }
 
