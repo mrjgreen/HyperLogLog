@@ -67,12 +67,12 @@ class Basic {
 
     public function export()
     {
-        return call_user_func_array('pack', array_merge(array('I*'), $this->getRegisters()));
+        return call_user_func_array('pack', array_merge(array('C*'), $this->getRegisters()));
     }
 
     public function import($str)
     {
-        $registers = array_values(unpack('I*', $str));
+        $registers = array_values(unpack('C*', $str));
 
         foreach($registers as $i => $r)
         {
