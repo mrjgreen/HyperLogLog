@@ -21,7 +21,7 @@ class MinHashIntersector
             return $minHashIntersection;
         }
 
-        return ($minHashIntersection / $minHashK) * $hllUnion->count();
+        return floor(($minHashIntersection / $minHashK) * $hllUnion->count());
     }
 
     public static function jaccard(array $minHashes, $strict = true)

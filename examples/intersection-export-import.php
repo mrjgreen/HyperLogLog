@@ -3,11 +3,11 @@
 include __DIR__ . '/../vendor/autoload.php';
 include __DIR__ . '/randomGenerator.php';
 
-$set1 = randomSet(1000);
+$set1 = randomSet(90000);
 
-$set2 = randomSet(1000);
+$set2 = randomSet(70000);
 
-$set3 = randomSet(1000);
+$set3 = randomSet(80000);
 
 echo "Number of words in set 1: " . count($set1) . "\n";
 
@@ -42,18 +42,22 @@ foreach(array($set1, $set2, $set3) as $i => $set)
     echo "Added set " . ($i + 1) . "\n";
 }
 
-list($minHashIntersection, $minHashK, $hllUnion) = \HyperLogLog\Utils\MinHashIntersector::jaccard($log_logs);
+$merge_log = array_pop($log_logs);
 
-$hllUnionCount = $hllUnion->count();
+$new_log_log = new HyperLogLog\MinHash();
 
-echo "Hll union: " . $hllUnionCount . "\n";
+$new_log_log->importAsArray($merge_log->export());
 
-echo "Min hash intersection: " . $minHashIntersection . "\n";
+$log_logs[] = $new_log_log;
 
-echo "Min hash k: " . $minHashK . "\n";
+$count = \HyperLogLog\Utils\MinHashIntersector::count($log_logs);
 
-$count = ($minHashIntersection / $minHashK) * $hllUnionCount;
-
-echo "intersection complete\n";
+echo "Intersection complete\n";
 
 echo $count . "\n" . 'error: ' . number_format(($count - $intersectionCount) / ($intersectionCount / 100.0), 3) . '%' . PHP_EOL;
+
+foreach($log_logs as $log)
+{
+    $export = $log->export();
+    echo "Size of export: " . strlen($export[0]) . ', ' . strlen($export[1]) . "\n";
+}

@@ -53,4 +53,9 @@ class MinHash extends Basic {
 
         $this->minHash->import($minHashStr);
     }
+
+    public function importAsArray($pair)
+    {
+        return $this->import($pair[0],$pair[1]);
+    }
 }

@@ -55,12 +55,16 @@ class MinHash {
 
     public function export()
     {
-        return implode(',',$this->toArray());
+        return call_user_func_array('pack', array_merge(array('I*'), $this->toArray()));
+
+        //return implode(',',$this->toArray());
     }
 
     public function import($str)
     {
-        $hash = explode(',', $str);
+        //$hash = explode(',', $str);
+
+        $hash = unpack('I*',$str);
 
         $this->registers = array_flip($hash);
     }
