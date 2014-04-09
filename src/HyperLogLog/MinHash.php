@@ -35,7 +35,7 @@ class MinHash extends Basic {
         return $this->minHash->getMinHashK();
     }
 
-    public function union(MinHash $hll)
+    public function union(Basic $hll)
     {
         $this->getMinHash()->union($hll->getMinHash());
 
