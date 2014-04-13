@@ -114,7 +114,7 @@ class Test {
 
             $i = 100000000 + $this->random();
 
-            $r = mt_rand(0,4);
+            $r = mt_rand(1,4);
 
             $end = $i + ($this->i * $r);
 
