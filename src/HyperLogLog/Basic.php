@@ -13,6 +13,8 @@ class Basic {
 
     private $ALPHA;
 
+    private $ONE_SHIFT_63;
+
     /**
      * @var SplFixedArray
      */
@@ -20,6 +22,8 @@ class Basic {
 
     public function __construct($HLL_P = self::DEFAULT_HLL)
     {
+        $this->ONE_SHIFT_63 = 1 << 63;
+
         $this->resize(1 << $HLL_P);
 
         $this->registers = new SplFixedArray($this->HLL_REGISTERS);
@@ -47,7 +51,7 @@ class Basic {
     {
         $h = $hash = crc32(md5($v));
 
-        $h |= 1 << 63; /* Make sure the loop terminates. */
+        $h |= $this->ONE_SHIFT_63; /* Make sure the loop terminates. */
         $bit = $this->HLL_REGISTERS; /* First bit not used to address the register. */
         $count = 1; /* Initialized to 1 since we count the "00000...1" pattern. */
         while(($h & $bit) == 0) {

@@ -2,10 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="44f29c0f-1712-4061-a4af-52f78bb2113f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/errortest/data/hyperloglog/results.3000000-p20.csv" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/errortest/data/hyperloglog/results.2014-04-13_12-25-50.csv" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/errortest/data/hyperloglog/3000000-p14.csv" afterPath="$PROJECT_DIR$/errortest/data/hyperloglog/3000000-p14.csv" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/errortest/data/hyperloglog/3000000-p14.csv" afterPath="$PROJECT_DIR$/errortest/data/hyperloglog/results.3000000-p14.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/HyperLogLog/Basic.php" afterPath="$PROJECT_DIR$/src/HyperLogLog/Basic.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/errortest/hlltest.php" afterPath="$PROJECT_DIR$/errortest/hlltest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/errortest/data/hyperloglog/results.3000000-p16.csv" afterPath="$PROJECT_DIR$/errortest/data/hyperloglog/results.3000000-p16.csv" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="HyperLogLog.iws" />
@@ -29,29 +29,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="10000000-p16.2014-04-13_01-29-34.csv" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/errortest/data/hyperloglog/10000000-p16.2014-04-13_01-29-34.csv">
+      <file leaf-file-name="hlltest-big.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/errortest/hlltest-big.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="240">
-              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.14251782" vertical-offset="1620" max-vertical-offset="2280">
+              <caret line="112" column="55" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
               <folding />
             </state>
-          </provider>
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="3000000-p14.csv" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/errortest/data/hyperloglog/3000000-p14.csv">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.9368421" vertical-offset="41315" max-vertical-offset="41850">
-              <caret line="2784" column="0" selection-start-line="2784" selection-start-column="0" selection-end-line="2784" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-          <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-            <state />
           </provider>
         </entry>
       </file>
@@ -68,7 +52,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/errortest/plot.html" />
         <option value="$PROJECT_DIR$/errortest/plot.php" />
         <option value="$PROJECT_DIR$/errortest/relative/plot.html" />
         <option value="$PROJECT_DIR$/errortest/absolute/index.html" />
@@ -115,8 +98,11 @@
         <option value="$PROJECT_DIR$/errortest/minhashtest.php" />
         <option value="$PROJECT_DIR$/errortest/data/hyperloglog/results.2014-04-13_12-25-50.csv" />
         <option value="$PROJECT_DIR$/errortest/ploter/menu.php" />
-        <option value="$PROJECT_DIR$/errortest/hlltest.php" />
         <option value="$PROJECT_DIR$/errortest/data/hyperloglog/3000000-p14.csv" />
+        <option value="$PROJECT_DIR$/errortest/hlltest.php" />
+        <option value="$PROJECT_DIR$/src/HyperLogLog/Basic.php" />
+        <option value="$PROJECT_DIR$/errortest/data/hyperloglog/results.3000000-p16.csv" />
+        <option value="$PROJECT_DIR$/errortest/hlltest-big.php" />
       </list>
     </option>
   </component>
@@ -199,29 +185,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="ploter" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HyperLogLog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HyperLogLog" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="errortest" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="data" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="minhash" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -258,9 +222,9 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/errortest" />
       <recent name="$PROJECT_DIR$/errortest/hyperloglog" />
       <recent name="$PROJECT_DIR$/errortest/img" />
-      <recent name="$PROJECT_DIR$/errortest" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/errortest/data/minhash" />
@@ -303,12 +267,12 @@
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26490983" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34396672" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32871014" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31214285" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
@@ -430,18 +394,10 @@
         <state vertical-scroll-proportion="-9.375" vertical-offset="0" max-vertical-offset="555">
           <caret line="15" column="60" selection-start-line="15" selection-start-column="60" selection-end-line="15" selection-end-column="60" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#1;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#2;n#!!top" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/errortest/hlltest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.0" vertical-offset="585" max-vertical-offset="2415">
-          <caret line="47" column="13" selection-start-line="47" selection-start-column="13" selection-end-line="47" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -453,18 +409,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/errortest/data/hyperloglog/10000000-p16.2014-04-13_01-29-34.csv">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="240">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/errortest/data/hyperloglog/3000000-p14.csv">
+    <entry file="file://$PROJECT_DIR$/errortest/data/hyperloglog/results.3000000-p14.csv">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.9368421" vertical-offset="41315" max-vertical-offset="41850">
           <caret line="2784" column="0" selection-start-line="2784" selection-start-column="0" selection-end-line="2784" selection-end-column="0" />
@@ -473,6 +418,49 @@
       </provider>
       <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
         <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/HyperLogLog/Basic.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.25" vertical-offset="330" max-vertical-offset="2415">
+          <caret line="24" column="38" selection-start-line="24" selection-start-column="38" selection-end-line="24" selection-end-column="38" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/errortest/data/hyperloglog/results.3000000-p16.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6411483" vertical-offset="8312" max-vertical-offset="8730">
+          <caret line="572" column="23" selection-start-line="572" selection-start-column="23" selection-end-line="572" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="com.intellij.persistence.database.editor.CsvTableFileEditorProvider">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/errortest/hlltest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-5.625" vertical-offset="1455" max-vertical-offset="2415">
+          <caret line="106" column="5" selection-start-line="101" selection-start-column="4" selection-end-line="106" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/errortest/data/hyperloglog/10000000-p16.2014-04-13_11-15-05.csv">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="445">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/errortest/hlltest-big.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14251782" vertical-offset="1620" max-vertical-offset="2280">
+          <caret line="112" column="55" selection-start-line="112" selection-start-column="55" selection-end-line="112" selection-end-column="55" />
+          <folding />
+        </state>
       </provider>
     </entry>
   </component>

@@ -44,9 +44,9 @@ function fileResults($file, $resultsArray)
 }
 
 $pValue = 16;
-$testMin = 3000000;
+$testMin = 4000000;
 $testMax = 10000000;
-$tests = 10;
+$tests = 1;
 $print = true;
 $verbose = false;
 $filename = __DIR__ . '/data/hyperloglog/'.$testMax.'-p'.$pValue.'.'.date('Y-m-d_h-i-s').'.csv';
