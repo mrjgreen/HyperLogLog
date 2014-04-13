@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . '/../../vendor/autoload.php';
+include __DIR__ . '/../vendor/autoload.php';
 
 ini_set('memory_limit','512M');
 
@@ -14,11 +14,6 @@ function testHeader($title)
 
 function errorLine($actual, $estimated)
 {
-    if($actual == 0)
-    {
-        return '-';
-    }
-
     return number_format((($actual - $estimated) / $actual) * 100, 4) . '%';
 }
 
@@ -49,12 +44,12 @@ function fileResults($file, $resultsArray)
 }
 
 
-$testMin = 80000;
-$testMax = 1000000;
-$tests = 50;
+$testMin = 1;
+$testMax = 3000000;
+$tests = 10;
 $print = true;
 $verbose = false;
-$filename = __DIR__ . '/results.'.date('Y-m-d_h-i-s').'.csv';
+$filename = __DIR__ . '/data/hyperloglog/results.'.date('Y-m-d_h-i-s').'.csv';
 
 
 
@@ -111,11 +106,9 @@ class Test {
     {
         while($repeat--)
         {
-            $keep1 = array();
-            $keep2 = array();
+            $keep = array();
 
-            $ll1 = new HyperLogLog\MinHash();
-            $ll2 = new HyperLogLog\MinHash();
+            $ll = new HyperLogLog\Basic(20);
 
             $total = 0;
 
@@ -125,42 +118,25 @@ class Test {
 
                 $rand = $this->random();
 
-                $keep1[$rand] = 1;
+                $keep[$rand] = 1;
 
-                $ll1->add($rand);
+                $ll->add($rand);
 
-                $rand = $this->random();
-
-                $keep2[$rand] = 1;
-
-                $ll2->add($rand);
-
-                if(($count = count($keep2)) >= $this->i)
+                if(count($keep) >= $this->i)
                 {
                     break;
                 }
             }
 
-            $intersection = \HyperLogLog\Utils\MinHashIntersector::count(array($ll1,$ll2));
+            $this->average[0] += count($keep);
 
-            $actual = count(array_intersect_key($keep1,$keep2));
+            $count = $ll->count();
 
-            if($actual == 0 || $intersection == 0)
-            {
-                continue;
-            }
-
-            $ll1->union($ll2);
-
-            $total = $ll1->count();
-
-            $this->average[0] += $actual;
-
-            $this->average[1] += $intersection;
+            $this->average[1] += $count;
 
             $this->average[2] += $total;
 
-            $this->results[] = array($actual, $intersection, $total);
+            $this->results[] = array(count($keep), $count, $total);
         }
     }
 

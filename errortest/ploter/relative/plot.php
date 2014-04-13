@@ -11,11 +11,9 @@ foreach($lines as $line)
 
     $int = (int)$line[0];
 
-    if(!$int) continue;
+    $error = ($line[1] - $int) / $int;
 
-    $error = ($line[1] - $int);
-
-    $data[] = array($int, $error);
+    $data[] = array($int, round($error * 100, 2));
 
     isset($average[$int]) or $average[$int] = array();
 
@@ -25,7 +23,7 @@ foreach($lines as $line)
 $parts = array();
 foreach($average as $i => $counts)
 {
-    $parts[] = array($i, array_sum($counts)/count($counts));
+    $parts[] = array($i, round(array_sum($counts)/count($counts) * 100,2));
 }
 
 echo json_encode(array($data, $parts));
