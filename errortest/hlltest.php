@@ -43,13 +43,13 @@ function fileResults($file, $resultsArray)
     }
 }
 
-
-$testMin = 1;
-$testMax = 3000000;
+$pValue = 16;
+$testMin = 3000000;
+$testMax = 10000000;
 $tests = 10;
 $print = true;
 $verbose = false;
-$filename = __DIR__ . '/data/hyperloglog/results.'.date('Y-m-d_h-i-s').'.csv';
+$filename = __DIR__ . '/data/hyperloglog/'.$testMax.'-p'.$pValue.'.'.date('Y-m-d_h-i-s').'.csv';
 
 
 
@@ -59,7 +59,7 @@ for($i = $testMin; $i <= $testMax; $i += $block)
 {
     $block = pow(10, max(0,floor(log10($i))));
 
-    $test = new Test($i);
+    $test = new Test($i, $pValue);
 
     $test->test($tests);
 
@@ -86,13 +86,17 @@ class Test {
 
     private $i;
 
+    private $pValue;
+
     private $average = array(0,0,0);
 
     private $results = array();
 
-    public function __construct($i)
+    public function __construct($i, $pValue = 14)
     {
         $this->i = $i;
+
+        $this->pValue = $pValue;
     }
 
     private function random()
@@ -108,7 +112,7 @@ class Test {
         {
             $keep = array();
 
-            $ll = new HyperLogLog\Basic(20);
+            $ll = new HyperLogLog\Basic($this->pValue);
 
             $total = 0;
 
