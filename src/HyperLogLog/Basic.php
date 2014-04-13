@@ -129,10 +129,11 @@ class Basic {
         $E = (1 / $E) * $this->ALPHA * $this->HLL_REGISTERS * $this->HLL_REGISTERS;
 
         /* Use the LINEARCOUNTING algorithm for small cardinalities.
-         * For larger values but up to 72000 HyperLogLog raw approximation is
-         * used since linear counting error starts to increase. However HyperLogLog
-         * shows a strong bias in the range 2.5*16384 - 72000, so we try to
-         * compensate for it. */
+         * For larger values HyperLogLog raw approximation is used since linear
+         * counting error starts to increase. However HyperLogLog shows a strong 
+         * positive bias in the range 2.5 * $this->HLL_REGISTERS - 72000, so 
+         * we try to compensate for it.
+         */
         if ($E < $this->HLL_REGISTERS * 2.5 && $ez != 0) {
             $E = $this->HLL_REGISTERS * log($this->HLL_REGISTERS / $ez); /* LINEARCOUNTING() */
         }
