@@ -3,6 +3,13 @@ HyperLogLog
 
 PHP implementation of the HyperLogLog algorithm. [Based on Antirez/Redis implementation.](https://github.com/antirez/redis/blob/unstable/src/hyperloglog.c)
 
+### Resources
+
+ * [An actual paper on the algorithm with real maths and scary equations.](http://stefanheule.com/papers/edbt2013-hyperloglog.pdf)
+ * [Awesome explanation and experimental data from AdRoll](http://tech.adroll.com/media/hllminhash.pdf)
+ * [Very nice blog post explaining what the HLL this is ;)](http://research.neustar.biz/2012/10/25/sketch-of-the-day-hyperloglog-cornerstone-of-a-big-data-infrastructure/)
+
+
 ### Note!
 This version has been tuned to work with a P value of 14. This is a register size of 2^14 Bytes = 16KB
 
