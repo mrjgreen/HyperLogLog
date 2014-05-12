@@ -19,4 +19,4 @@ There is a large bias that can be seen in the graphs below, which begins when th
 
 *P=16*
 Note the offset bias around 2.5 * 2^16 ~= 165000
-![HyerLogLog P = 16](https://raw.githubusercontent.com/joegreen0991/HyperLogLog/master/errortest/img/P16hll.png)
+![HyerLogLog P = 16](https://raw.githubusercontent.com/joegreen0991/HyperLogLog/master/errortest/img/p16hll.png)
