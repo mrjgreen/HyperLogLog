@@ -26,11 +26,11 @@ There is a large bias that can be seen in the graphs below, which begins when th
 
 
 *P=16*
-Note the offset bias around 2.5 * 2^16 ~= 165000
+Note the offset bias around 2.5 * 2^16 ~= 165,000
 ![HyerLogLog P = 16](https://raw.githubusercontent.com/joegreen0991/HyperLogLog/master/errortest/img/p16hll.png)
 
 *P=20*
-Note the offset bias around 2.5 * 2^16 ~= 165000
+Note the offset bias around 2.5 * 2^20 ~= 2,600,000
 ![HyerLogLog P = 20](https://raw.githubusercontent.com/joegreen0991/HyperLogLog/master/errortest/img/p20hll.png)
 
 ####MinHash
