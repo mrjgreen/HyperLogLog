@@ -5,7 +5,7 @@ PHP implementation of the HyperLogLog algorithm. [Based on Antirez/Redis impleme
 
 ### Resources
 
- * [The original HLL algorithm (I think) from Phillipe Flajolet](http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf)
+ * [The original HLL algorithm from Phillipe Flajolet](http://algo.inria.fr/flajolet/Publications/FlFuGaMe07.pdf)
  * [An actual paper on the algorithm with real maths and scary equations.](http://stefanheule.com/papers/edbt2013-hyperloglog.pdf)
  * [Awesome explanation and experimental data from AdRoll](http://tech.adroll.com/media/hllminhash.pdf)
  * [Very nice blog post explaining what the HLL this is ;)](http://research.neustar.biz/2012/10/25/sketch-of-the-day-hyperloglog-cornerstone-of-a-big-data-infrastructure/)
