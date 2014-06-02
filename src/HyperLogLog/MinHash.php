@@ -20,9 +20,14 @@ class MinHash extends Basic {
 
     public function add($v)
     {
-        $hash = parent::add($v);
+        return $this->addRaw(static::hash($v));
+    }
 
+    public function addRaw($hash)
+    {
         $this->minHash->add($hash);
+
+        return parent::addRaw($hash);
     }
 
     public function getMinHash()

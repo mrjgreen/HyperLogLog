@@ -47,26 +47,39 @@ class Basic {
         }
     }
 
+    protected static function hash($value)
+    {
+        return crc32(md5($value));
+    }
+
     public function add($v)
     {
-        $h = $hash = crc32(md5($v));
+        $hash = static::hash($v);
 
-        $h |= $this->ONE_SHIFT_63; /* Make sure the loop terminates. */
+        $this->addRaw($hash);
+
+        return $hash;
+    }
+
+    public function addRaw($hash)
+    {
+        $hash |= $this->ONE_SHIFT_63; /* Make sure the loop terminates. */
         $bit = $this->HLL_REGISTERS; /* First bit not used to address the register. */
         $count = 1; /* Initialized to 1 since we count the "00000...1" pattern. */
-        while(($h & $bit) == 0) {
+        while(($hash & $bit) == 0) {
             $count++;
             $bit <<= 1;
         }
 
         /* Update the register if this element produced a longer run of zeroes. */
-        $index = $h & $this->HLL_P_MASK; /* Index a register inside registers. */
+        $index = $hash & $this->HLL_P_MASK; /* Index a register inside registers. */
 
         if ($this->registers[$index] < $count) {
             $this->registers[$index] = $count;
+            return true;
         }
 
-        return $hash;
+        return false;
     }
 
     public function export()
