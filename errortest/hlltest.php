@@ -43,10 +43,10 @@ function fileResults($file, $resultsArray)
     }
 }
 
-$pValue = 18;
-$testMin = 8000000;
-$testMax = 20000000;
-$tests = 2;
+$pValue = 17;
+$testMin = 1;
+$testMax = 1000000;
+$tests = 5;
 $print = true;
 $verbose = false;
 $filename = __DIR__ . '/data/hyperloglog/'.$testMax.'-p'.$pValue.'.'.date('Y-m-d_h-i-s').'.csv';

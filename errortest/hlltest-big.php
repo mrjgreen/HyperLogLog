@@ -44,8 +44,8 @@ function fileResults($file, $resultsArray)
 }
 
 $pValue = 18;
-$testMin = 4000000;
-$testMax = 20000000;
+$testMin = 1;
+$testMax = 1000000;
 $tests = 5;
 $print = true;
 $verbose = false;
@@ -94,7 +94,7 @@ class Test {
 
     public function __construct($i, $pValue = 14)
     {
-        $this->i = $i;
+        $this->i = $i - 1;
 
         $this->pValue = $pValue;
     }

@@ -4,7 +4,7 @@ use SplPriorityQueue;
 
 class BiasData {
 
-    public static $thresholdData = array(10, 20, 40, 80, 220, 400, 900, 1800, 3100, 6500, 15500, 20000, 50000, 120000, 350000);
+    //public static $thresholdData = array(10, 20, 40, 80, 220, 400, 900, 1800, 3100, 6500, 15500, 20000, 50000, 120000, 350000);
 
     public static $rawEstimateData = array(
         // precision 4
