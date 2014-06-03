@@ -43,9 +43,9 @@ function fileResults($file, $resultsArray)
     }
 }
 
-$pValue = 16;
+$pValue = 18;
 $testMin = 4000000;
-$testMax = 10000000;
+$testMax = 20000000;
 $tests = 5;
 $print = true;
 $verbose = false;
