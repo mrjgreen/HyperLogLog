@@ -30,18 +30,18 @@ class MinHashIntersector
 
         $totalHll = new HyperLogLogMinHash(Basic::DEFAULT_HLL, new MinHash($minHashK));
 
-        $arrayHashses = array();
+        $intersection = array();
 
         foreach($minHashes as $hll)
         {
             $totalHll->union($hll);
 
-            $arrayHashses[] = $hll->getMinHash()->toArray();
+            $hashK = $hll->getMinHash()->toArray();
+
+            $intersection = $intersection ? array_intersect($intersection, $hashK) : $hashK;
         }
 
-        array_unshift($arrayHashses, $totalHll->getMinHash()->toArray());
-
-        $intersection = call_user_func_array('array_intersect', $arrayHashses);
+        $intersection = array_intersect($intersection, $totalHll->getMinHash()->toArray());
 
         return array(count($intersection),  $minHashK, $totalHll);
     }

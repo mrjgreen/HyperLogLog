@@ -2,7 +2,7 @@
 <html>
 <head lang="en">
     <meta charset="UTF-8">
-    <title>Ploter</title>
+    <title>Plotter</title>
 </head>
 <body>
 <?php include __DIR__ . '/../menu.php'; ?>

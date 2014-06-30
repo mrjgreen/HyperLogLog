@@ -3,7 +3,7 @@
 <script src="http://code.highcharts.com/modules/exporting.js"></script>
 
 <div style="width:300px; float:left;">
-    <a href="../absolute">Absolute</a> | <a href="../relative">Relative</a> | <a href="../log">LogLog Graph</a>
+    <a href="../absolute/">Absolute</a> | <a href="../relative/">Relative</a> | <a href="../log/">LogLog Graph</a>
 </div>
 
 <div style="width:350px; float:left;">
