@@ -1,5 +1,5 @@
 {
-    "name": "joegreen0991/HyperLogLog",
+    "name": "joegreen0991/hyperloglog",
     "type": "library",
     "description": "A hyper log log with min hash data structure library, for counting cardinalities. Union and intersection capable",
     "keywords": ["hyperloglog", "hyper log log", "min hash", "unique", "cardinalities", "cardinality"],
