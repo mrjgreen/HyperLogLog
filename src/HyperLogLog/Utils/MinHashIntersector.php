@@ -27,7 +27,7 @@ class MinHashIntersector
             }
         }
 
-        $intersection = array_intersect($intersection, $totalHll->getMinHash()->toArray());
+        $intersectionCount = count(array_intersect($intersection, $totalHll->getMinHash()->toArray()));
 
         $hllUnionCount = $totalHll->count();
 
@@ -37,12 +37,12 @@ class MinHashIntersector
          * the min hash data structures will be accurate until the size of the union is
          * greater than the max size of the min hash data structure
          */
-        if($hllUnionCount < $minHashK)
+        if($intersectionCount === 0 || $hllUnionCount < $minHashK)
         {
-            return count($intersection);
+            return $intersectionCount;
         }
 
-        return floor((count($intersection) / $minHashK) * $hllUnionCount);
+        return floor($intersectionCount / $minHashK) * $hllUnionCount;
     }
 
     private static function getMinHashKForSet(array $minHashes, $strict)
