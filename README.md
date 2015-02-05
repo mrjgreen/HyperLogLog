@@ -17,6 +17,7 @@ PHP implementation of the HyperLogLog algorithm. [Based on Antirez/Redis impleme
 ~~There is a large bias that can be seen in the graphs below, which begins when the set cardinality reaches around 2^P * 2.5. Polynomial regression has been used to calculate bias offsets BUT ONLY FOR P = 14. You are free to change the P value but the bias offsets will not be applied. [Check out the code for more information](https://github.com/mrjgreen/HyperLogLog/blob/master/src/HyperLogLog/Basic.php#L141)~~
 
 EDIT: This branch has included bias data to cover a range of P-values from 4 to 18
+TODO: Dependency injection for bias values (with defaults)
 
 
 ### Some Professional Looking Graphs
